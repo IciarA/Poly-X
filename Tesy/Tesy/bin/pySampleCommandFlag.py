@@ -49,6 +49,9 @@ kLongFlagJson = '-jsonFile'
 kShortFlagJsonLoad = '-jl'
 kLongFlagJsonLoad = '-jsonFileLoad'
 
+kShortFlagReset = '-rd'
+kLongFlagReset = '-resetData'
+
 propLabel = 'none'
 
 
@@ -187,6 +190,16 @@ class MyCommandWithFlagClass( OpenMaya.MPxCommand ):
 		if argData.isFlagSet(kShortFlagJsonLoad):
             filename = argData.flagArgumentString(kShortFlagJson, 0)
 			#parse json file here
+
+
+
+		if argData.isFlagSet(kShortFlagReset):
+            exampleScenes = []
+			exampleVecs = []
+			propagateScenes = []
+			propagateVecs = []
+			data = {}
+			data['group'] = []
 
 
 
@@ -367,6 +380,8 @@ def syntaxCreator():
 
 	syntax.addFlag( kShortFlagJsonLoad, kLongFlagJsonLoad, OpenMaya.MSyntax.kString )
 
+	syntax.addFlag( kShortFlagReset, kLongFlagReset, OpenMaya.MSyntax.kDouble )
+
     # ... Add more flags here ...
 
     return syntax
@@ -392,13 +407,6 @@ def uninitializePlugin( mobject ):
 
     maya.mel.eval("deleteUI $menu;");
 
-	propLabel = 'none'
-	exampleScenes = []
-	exampleVecs = []
-	propagateScenes = []
-	propagateVecs = []
-	data = {}
-	data['group'] = []
 
 ##########################################################
 # Sample usage.

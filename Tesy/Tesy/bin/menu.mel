@@ -212,6 +212,7 @@ global proc propagate() {
 
 
 global proc cancelProp() {
+	polyX -rd 0;
 	deleteUI polyXWindow;
 };
 
