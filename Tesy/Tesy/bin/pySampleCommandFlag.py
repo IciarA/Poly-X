@@ -186,7 +186,7 @@ class MyCommandWithFlagClass( OpenMaya.MPxCommand ):
 
 		if argData.isFlagSet(kShortFlagJsonLoad):
             filename = argData.flagArgumentString(kShortFlagJson, 0)
-			#parse json file here 
+			#parse json file here
 
 
 
@@ -391,6 +391,14 @@ def uninitializePlugin( mobject ):
         sys.stderr.write( 'Failed to unregister command: ' + kPluginCmdName )
 
     maya.mel.eval("deleteUI $menu;");
+
+	propLabel = 'none'
+	exampleScenes = []
+	exampleVecs = []
+	propagateScenes = []
+	propagateVecs = []
+	data = {}
+	data['group'] = []
 
 ##########################################################
 # Sample usage.
